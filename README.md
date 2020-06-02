@@ -2,9 +2,9 @@
 
 ##### A simple stopwatch macOS app created with Flutter (One-Day-Build).
 
-<img width="300" src="https://raw.githubusercontent.com/am-singh/stopwatch/master/screenshots/screenshot.png">
+<img width="400" src="https://raw.githubusercontent.com/am-singh/stopwatch/master/screenshots/screenshot.png">
 
-## Instructions (3 steps)
+## Instructions (3-steps)
 
 #### 1. Download
 Find the file `Stopwatch.zip` above and click on the link. On the right you will find the `download` button. Click on it.
