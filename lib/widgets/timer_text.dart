@@ -7,21 +7,21 @@ import 'package:stopwatch/widgets/minutes_and_seconds.dart';
 import 'package:stopwatch/widgets/unicorn_outline_button.dart';
 
 class TimerText extends StatefulWidget {
-  TimerText({this.dependencies});
-  final WatchParams dependencies;
+  TimerText({this.watchParams});
+  final WatchParams watchParams;
 
-  TimerTextState createState() => new TimerTextState(dependencies: dependencies);
+  TimerTextState createState() => new TimerTextState(watchParams: watchParams);
 }
 
 class TimerTextState extends State<TimerText> {
-  TimerTextState({this.dependencies});
-  final WatchParams dependencies;
+  TimerTextState({this.watchParams});
+  final WatchParams watchParams;
   Timer timer;
   int milliseconds;
 
   @override
   void initState() {
-    timer = new Timer.periodic(new Duration(milliseconds: dependencies.timerMillisecondsRefreshRate), callback);
+    timer = new Timer.periodic(new Duration(milliseconds: watchParams.timerMillisecondsRefreshRate), callback);
     super.initState();
   }
 
@@ -33,8 +33,8 @@ class TimerTextState extends State<TimerText> {
   }
 
   void callback(Timer timer) {
-    if (milliseconds != dependencies.stopwatch.elapsedMilliseconds) {
-      milliseconds = dependencies.stopwatch.elapsedMilliseconds;
+    if (milliseconds != watchParams.stopwatch.elapsedMilliseconds) {
+      milliseconds = watchParams.stopwatch.elapsedMilliseconds;
       final int hundreds = (milliseconds / 10).truncate();
       final int seconds = (hundreds / 100).truncate();
       final int minutes = (seconds / 60).truncate();
@@ -43,7 +43,7 @@ class TimerTextState extends State<TimerText> {
         seconds: seconds,
         minutes: minutes,
       );
-      for (final listener in dependencies.timerListeners) {
+      for (final listener in watchParams.timerListeners) {
         listener(elapsedTime);
       }
     }
@@ -66,7 +66,7 @@ class TimerTextState extends State<TimerText> {
                     alignment: Alignment.center,
                     height: 100,
                     width: 200,
-                    child: MinutesAndSeconds(dependencies: dependencies))),
+                    child: MinutesAndSeconds(dependencies: watchParams))),
             onPressed: () {},
           ),
         ),

@@ -44,7 +44,7 @@ class HomeViewState extends State<HomeView> {
             ),
           ),
           SizedBox(height: 10),
-          Expanded(child: Center(child: TimerText(dependencies: watchParams))),
+          Expanded(child: Center(child: TimerText(watchParams: watchParams))),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),
             child: Row(
