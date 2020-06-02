@@ -32,7 +32,7 @@ class AboutView extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: IconButton(
                 icon: Icon(
-                  Icons.arrow_back_ios,
+                  Feather.arrow_left,
                   color: Colors.white.withOpacity(0.8),
                   size: 20,
                 ),

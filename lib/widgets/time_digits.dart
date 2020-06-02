@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:stopwatch/models/elapsed_time.dart';
+import 'package:stopwatch/models/time.dart';
 import 'package:stopwatch/models/watch_params.dart';
-import 'package:stopwatch/views/home_view.dart';
 
-class MinutesAndSeconds extends StatefulWidget {
-  MinutesAndSeconds({this.dependencies});
+class TimeDigits extends StatefulWidget {
+  TimeDigits({this.dependencies});
   final WatchParams dependencies;
 
-  MinutesAndSecondsState createState() => new MinutesAndSecondsState(dependencies: dependencies);
+  TimeDigitsState createState() => new TimeDigitsState(dependencies: dependencies);
 }
 
-class MinutesAndSecondsState extends State<MinutesAndSeconds> {
-  MinutesAndSecondsState({this.dependencies});
+class TimeDigitsState extends State<TimeDigits> {
+  TimeDigitsState({this.dependencies});
   final WatchParams dependencies;
 
   int minutes = 0;
@@ -23,7 +22,7 @@ class MinutesAndSecondsState extends State<MinutesAndSeconds> {
     super.initState();
   }
 
-  void onTick(ElapsedTime elapsed) {
+  void onTick(Time elapsed) {
     if (elapsed.minutes != minutes || elapsed.seconds != seconds) {
       setState(() {
         minutes = elapsed.minutes;

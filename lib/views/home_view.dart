@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
 import 'package:stopwatch/models/watch_params.dart';
 import 'package:stopwatch/views/about_view.dart';
 import 'package:stopwatch/widgets/timer_text.dart';
@@ -38,12 +39,11 @@ class HomeViewState extends State<HomeView> {
             alignment: Alignment.centerRight,
             child: Padding(
               padding: const EdgeInsets.only(right: 8.0),
-              child: GestureDetector(
-                  onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => AboutView())),
-                  child: Icon(Icons.info_outline, size: 20, color: Colors.white.withOpacity(0.8))),
+              child: IconButton(
+                  onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => AboutView())),
+                  icon: Icon(Feather.menu, size: 20, color: Colors.white.withOpacity(0.8))),
             ),
           ),
-          SizedBox(height: 10),
           Expanded(child: Center(child: TimerText(watchParams: watchParams))),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10.0),

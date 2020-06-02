@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:stopwatch/models/elapsed_time.dart';
+import 'package:stopwatch/models/time.dart';
 import 'package:stopwatch/models/watch_params.dart';
-import 'package:stopwatch/widgets/minutes_and_seconds.dart';
+import 'package:stopwatch/widgets/time_digits.dart';
 import 'package:stopwatch/widgets/unicorn_outline_button.dart';
 
 class TimerText extends StatefulWidget {
@@ -21,7 +21,7 @@ class TimerTextState extends State<TimerText> {
 
   @override
   void initState() {
-    timer = new Timer.periodic(new Duration(milliseconds: watchParams.timerMillisecondsRefreshRate), callback);
+    timer = new Timer.periodic(new Duration(milliseconds: watchParams.timerMillisecondsRefreshRate), tickCallback);
     super.initState();
   }
 
@@ -32,17 +32,12 @@ class TimerTextState extends State<TimerText> {
     super.dispose();
   }
 
-  void callback(Timer timer) {
+  void tickCallback(Timer timer) {
     if (milliseconds != watchParams.stopwatch.elapsedMilliseconds) {
       milliseconds = watchParams.stopwatch.elapsedMilliseconds;
-      final int hundreds = (milliseconds / 10).truncate();
-      final int seconds = (hundreds / 100).truncate();
+      final int seconds = (milliseconds / 1000).truncate();
       final int minutes = (seconds / 60).truncate();
-      final ElapsedTime elapsedTime = new ElapsedTime(
-        hundreds: hundreds,
-        seconds: seconds,
-        minutes: minutes,
-      );
+      final Time elapsedTime = new Time(seconds: seconds, minutes: minutes);
       for (final listener in watchParams.timerListeners) {
         listener(elapsedTime);
       }
@@ -66,7 +61,7 @@ class TimerTextState extends State<TimerText> {
                     alignment: Alignment.center,
                     height: 100,
                     width: 200,
-                    child: MinutesAndSeconds(dependencies: watchParams))),
+                    child: TimeDigits(dependencies: watchParams))),
             onPressed: () {},
           ),
         ),
