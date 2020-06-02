@@ -1,6 +1,6 @@
 # Stopwatch (macOS)
 
-##### A simple stopwatch macOS app created with Flutter (One-Day-Build).
+##### A simple stopwatch macOS app created with Flutter (One-Day-Build). Very convenient to keep track how long you have been working on a topic.
 
 <img width="400" src="https://raw.githubusercontent.com/am-singh/stopwatch/master/screenshots/screenshot.png">
 
