@@ -12,7 +12,7 @@ Find the file `Stopwatch.zip` above and click on the link. On the right you will
 <img width="300" src="https://raw.githubusercontent.com/am-singh/stopwatch/master/screenshots/Download.png">
 
 #### 2. Allow the app in security settings
-Aftewards extract the zip and run `Stopwatch.app`. A warning will appear, since this app is not downloaded from the Mac AppStore. However, to open it navigate to `System Preferences` and click on `Security & Privacy`. Then click on `Open anyway`.
+Aftewards extract the zip and run `Stopwatch.app`. A warning will appear, since this app is not downloaded from the Mac AppStore. However, to open the app close the warning and navigate to `System Preferences`. Then click on `Security & Privacy` and then `Open anyway`. Afterwards try to open the app again. Once it opens succesfully you can also move the app to your `Applications` folder.
 
 <img width="300" src="https://raw.githubusercontent.com/am-singh/stopwatch/master/screenshots/Security.png">
 
